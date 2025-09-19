@@ -41,5 +41,3 @@ The assignment requires implementing at least four of the following:
 - **Tools:** VS Code, Git, GitHub
 
 ---
-
-## Project Structure
