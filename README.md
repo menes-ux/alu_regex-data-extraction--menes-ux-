@@ -1,4 +1,4 @@
-# ALU Regex Data Extraction - {YourUsername}
+# ALU Regex Data Extraction - {menes-ux}
 
 ## Project Overview
 This project is part of the first formative assignment for practicing **regular expressions (regex)** in JavaScript.  
