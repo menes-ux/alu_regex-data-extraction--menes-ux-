@@ -39,12 +39,12 @@ Follow these instructions to get a copy of the project up and running on your lo
 1.  **Clone the repository:**
     Open your terminal or command prompt and run the following command:
     ```bash
-    git clone [https://github.com/](https://github.com/){YourUsername}/alu_regex-data-extraction-{YourUsername}.git
+    git clone [https://github.com/](https://github.com/){menes-ux}/alu_regex-data-extraction-{menes-ux}.git
     ```
 
 2.  **Navigate to the project directory:**
     ```bash
-    cd alu_regex-data-extraction-{YourUsername}
+    cd alu_regex-data-extraction-{menes-ux}
     ```
 
 3.  **Open the project in VS Code:**
