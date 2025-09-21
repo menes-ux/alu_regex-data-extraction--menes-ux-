@@ -12,3 +12,58 @@
     <link rel="stylesheet" href="style.css">
     <title>Basic form using pure Html</title>
 </head>
+
+<body>
+        <!-- The form starts here with the <form> tag -->
+
+        <!-- I am giving a class of container to the form -->
+        <form action="#" method="get" class="container">  
+
+            <h3>This is a simple form using html</h3>
+            <!-- Each inputs represents one form field validation in which we are going to write the Regular expression in js -->
+             
+            <div class="big-container">
+                <div class="input-container">
+                    <!-- Email -->
+                    <label for="email">E-mail address</label> <br>
+                    <input type="text" id="email" placeholder="user@example.com/firstname.lastname@company.co.uk">
+                </div>
+        
+
+                <!-- Website URL -->
+                <div class="input-container">
+                    <label for="url">Website url</label> <br>
+                    <input type="text" id="url" placeholder="Eg: https://www.example.com">
+                </div>
+                
+
+                <!-- Phone number -->
+                 <div class="input-container">
+                    <label for="phone">Phone number</label><br>
+                    <input type="text" id="phone" placeholder="Eg: 1234 5678 9012 3456/1234-5678-9012-3456">
+                 </div>
+                 
+                 
+                <!-- Credit card -->
+                  <div class="input-container">
+                    <label for="credit">Credit card</label><br>
+                    <input type="text" id="credit" placeholder="Eg: 1234 5678 9012 3456/1234-5678-9012-3456">
+                  </div>
+                
+            </div>
+
+                <!-- Currency -->
+                 <div class="small-container">
+                    <label for="currency">Currency</label><br>
+                    <input type="text" id="currency" placeholder="Eg: $19.99/$1,234.56">
+                 </div>
+                 
+                  
+                
+            <button type="submit">Submit</button>
+        </form>
+    <script src="script.js"></script>
+</body>
+
+
+</html>
