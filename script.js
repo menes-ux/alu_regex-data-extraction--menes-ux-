@@ -11,7 +11,12 @@ const currencyInput = document.getElementById("currency")
 const form = document.querySelector(".container")
 
 // Next I will store the appropriate regex validation into varible for input validation
-const emailRegex = ;
+const emailRegex = /\w+@\w+(\.\w+)+/g;
+
+
+
+
+
 const urlRegex = ;
 const phoneRegex = ;
 const creditcardRegex = ;
@@ -52,7 +57,7 @@ function validateForm(){
         isValid = false
     }
 
-    if (! creditcardInput.test(creditcardInput.value)) {
+    if (! creditcardRegex.test(creditcardInput.value)) {
         console.log("Invalid credit card number");
         isValid = false
     }
@@ -61,4 +66,13 @@ function validateForm(){
         console.log("Invalid currency format");
         isValid = false
     }
+
+    // Here is the main function, it checks the validation inputs
+    if (isValid) {
+        console.log("Form submitted succesfully, thanks")}
+
+    else {
+        console.log("The form has some errors, please check your inputs")}
     }
+    
+
