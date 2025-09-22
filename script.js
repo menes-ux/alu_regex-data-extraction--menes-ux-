@@ -8,7 +8,7 @@ const form = document.querySelector(".container")
 const emailInput = document.getElementById("email")
 const urlInput = document.getElementById("url")
 const phoneInput = document.getElementById("phone")
-const creditcardInput = document.getElementById("credit")
+const creditInput = document.getElementById("credit")
 const currencyInput = document.getElementById("currency")
 
 
@@ -24,12 +24,38 @@ const emailRegex = /\w+@\w+(\.\w+)+/g;
 // g: global flag to search for all matches in the input string
 
 
+const urlRegex = /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})([\/\w.-]*)*\/?$/i;
+// ^ and $: anchor the regex to the start and end of the string (must match the whole input)
+// (https?:\/\/)?: optional "http://" or "https://"
+// [\w.-]+: domain name (letters, numbers, underscores, dots, or dashes)
+// \.: literal dot (escaped since dot is special in regex)
+// ([a-z]{2,6}): top-level domain like com, org, net (2 to 6 letters)
+// ([\/\w.-]*)*: optional path like /page or /folder/file
+// \/?$: optional trailing slash
+// i: case insensitive (so .COM or .Org still works)
 
+const phoneRegex = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
+// ^ and $: start and end of the string
+// \(?\d{3}\)?: optional parentheses around the first 3 digits (area code)
+// [-.\s]?: optional separator (dash, dot, or space)
+// \d{3}: next 3 digits
+// [-.\s]?: another optional separator
+// \d{4}: final 4 digits
 
-const urlRegex = /.*/;        // This just matches any character
-const phoneRegex = /.*/;      // Or you can use / / for an empty regex
-const creditcardRegex = /.*/;
-const currencyRegex = /.*/;
+const creditCardRegex = /^\d{4}([ -]?\d{4}){3}$/;
+// ^ and $: full string must match
+// \d{4}: first block of 4 digits
+// ([ -]?\d{4}){3}: repeat 3 times → optional space or dash + 4 digits
+// This covers formats like "1234 5678 9012 3456" or "1234-5678-9012-3456"
+
+const currencyRegex = /^\$?\d{1,3}(,\d{3})*(\.\d{2})?$/;
+// ^ and $: start and end anchors
+// \$?: optional dollar sign
+// \d{1,3}: 1 to 3 digits at the start
+// (,\d{3})*: optional groups like ,234 for thousand separators
+// (\.\d{2})?: optional decimal point with exactly 2 digits (for cents)
+// Matches "$19.99", "$1,234.56", or even "123"
+
 
 // Here I am adding an event listenner for the "type = submit" for when we click the button to control the output
 form.addEventListener("submit", (event) => 
@@ -59,6 +85,15 @@ function validateForm() {
         isValid = false;
     }
     
+
+    // Validate Phone Number
+    if (!phoneRegex.test(phoneInput.value)) {
+        displayError(phoneInput, 'Please enter a valid phone number (e.g., 123-456-7890).');
+        isValid = false;
+    }
+
+
+
     // Validate Credit Card Number
     if (!creditCardRegex.test(creditInput.value)) {
         displayError(creditInput, 'Please enter a valid 16-digit credit card number.');
